@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:12:07 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/13 01:19:03 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/13 03:40:06 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void print_stack(t_node *stack)
 	}
 
 }
+
+// clear
 
 void	final_sort(t_node **stack_a, t_node **stack_b)
 {
