@@ -6,11 +6,20 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:01:02 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/01/29 08:58:30 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/11 12:59:59 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_node	*lst_last(t_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
 
 t_node	*ft_lstnew(int content)
 {
@@ -20,6 +29,7 @@ t_node	*ft_lstnew(int content)
 	if (!new)
 		return (NULL);
 	new->content = content;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }

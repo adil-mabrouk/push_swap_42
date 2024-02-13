@@ -6,13 +6,13 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:51:53 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/01/31 01:34:08 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:11:29 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_node_position(t_node **stack)
+void	ft_node_index(t_node **stack)
 {
 	t_node	*tmp;
 	int		i;
@@ -21,18 +21,19 @@ void	ft_node_position(t_node **stack)
 	i = 0;
 	while (tmp)
 	{
-		tmp->pos = i;
+		tmp->index = i;
 		tmp = tmp->next;
 		i++;
 	}
 }
 
-int	get_min_pos(t_node **stack)
+int	get_min_index(t_node **stack)
 {
 	t_node	*tmp;
 	int		min;
-	int		pos;
+	int		index;
 
+	index = 0;
 	tmp = *stack;
 	min = tmp->content;
 	while (tmp)
@@ -40,11 +41,11 @@ int	get_min_pos(t_node **stack)
 		if (tmp->content < min)
 		{
 			min = tmp->content;
-			pos = tmp->pos;
+			index = tmp->index;
 		}
 		tmp = tmp->next;
 	}
-	return (pos);
+	return (index);
 }
 
 int	lst_size(t_node *stack)
@@ -64,22 +65,18 @@ int	lst_size(t_node *stack)
 
 void	sort_5(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*tmp;
+	int	min_index;
 
 	while (lst_size(*stack_a) > 3)
 	{
-		ft_node_position(stack_a);
-		tmp = *stack_a;
-				printf("\n%d\n ", tmp->pos);
-		while ((*stack_a)->pos != get_min_pos(stack_a))
+		ft_node_index(stack_a);
+		min_index = get_min_index(stack_a);
+		while (*stack_a && (*stack_a)->index != min_index)
 		{
-			if (get_min_pos(stack_a) > lst_size(*stack_a) / 2)
-			{
+			if (min_index > lst_size(*stack_a) / 2)
 				ft_rra(stack_a, 1);
-			}
 			else
 				ft_ra(stack_a, 1);
-			tmp  = tmp->next;
 		}
 		ft_pb(stack_a, stack_b, 1);
 	}
@@ -88,19 +85,18 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	ft_pa(stack_a, stack_b, 1);
 }
 
-int main (){
-	t_node *stack_a;
-	t_node *added;
-	t_node *tmp;
-	t_node *stack_b;
-	stack_b = NULL;
-	int tab[5] = {1, 2, 5, 4, 3};
-	stack_a = ft_create_list(tab, 5);
-	sort_5(&stack_a, &stack_b);
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf ("%d\n", tmp->content);
-		tmp = tmp->next;
-	}
-}
+// int main (){
+// 	t_node *stack_a;
+// 	t_node *tmp;
+// 	t_node *stack_b;
+// 	stack_b = NULL;
+// 	int tab[5] = {4, 1, 2, 3};
+// 	stack_a = ft_create_list(tab, 5);
+// 	sort_5(&stack_a, &stack_b);
+// 	tmp = stack_a;
+// 	while (tmp)
+// 	{
+// 		printf ("%d\n", tmp->content);
+// 		tmp = tmp->next;
+// 	}
+// }

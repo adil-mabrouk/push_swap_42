@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:45:40 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/01/29 08:16:12 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:30:45 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_sa(t_node **stack_a, int i)
 	t_node	*second;
 
 	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	if (!check_sort(*stack_a))
 		return ;
 	second = (*stack_a)->next;
 	(*stack_a)->next = second->next;

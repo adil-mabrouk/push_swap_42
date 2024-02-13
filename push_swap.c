@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 08:27:23 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/01/30 05:33:12 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:36:36 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,6 @@ int	correct_input(char *str)
 	return (1);
 }
 
-void	out()
-{
-	system("leaks a.out");
-}
-
 int strlen_2d(char **str)
 {
 	int	i;
@@ -75,7 +70,7 @@ int strlen_2d(char **str)
 	return(i);
 }
 
-t_node	*arg_else(int ac, char **av)
+t_node	*ft_parsing(char **av)
 {
 	t_node	*lst;
 	char	**s;
@@ -104,13 +99,30 @@ t_node	*arg_else(int ac, char **av)
 
 int	main(int ac, char *av[])
 {
-	t_node	*lst;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
+	stack_b = NULL;
 	if (ac > 1)
 	{
-		lst = arg_else(ac, av);
-		free_list(lst);
+		stack_a = ft_parsing(av);
+		if (!check_sort(stack_a))
+			exit (0);
+		if (lst_size(stack_a) == 2)
+			ft_sa(&stack_a, 1);
+		if (lst_size(stack_a) == 3)
+			sort_3(&stack_a);
+		if (lst_size(stack_a) == 4 || lst_size(stack_a) == 5)
+			sort_5(&stack_a, &stack_b);
+		if (lst_size(stack_a) > 5)
+		{
+			get_index(&stack_a);
+			pivots_sort(&stack_a, &stack_b);
+			final_sort(&stack_a, &stack_b);
+		}
+		while (check_sort(stack_a))
+			ft_rra(&stack_a,1);
+		free_list(stack_a);
 	}
-	atexit(out);
 	return (0);
 }
