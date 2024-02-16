@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 08:25:34 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/11 12:18:53 by amabrouk         ###   ########.fr       */
+/*   Created: 2024/02/13 04:40:10 by amabrouk          #+#    #+#             */
+/*   Updated: 2024/02/15 16:53:38 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_sort(t_node *stack_a)
 	while (tmp)
 	{
 		if (tmp->next == NULL)
-			break;
+			break ;
 		if (tmp->content < tmp->next->content)
 		{
 			tmp = tmp->next;
@@ -52,7 +52,7 @@ int	max(t_node *stack_a)
 
 void	sort_3(t_node **stack_a)
 {
-	int max_content;
+	int	max_content;
 
 	max_content = max(*stack_a);
 	if ((*stack_a)->content == max_content)
@@ -62,26 +62,3 @@ void	sort_3(t_node **stack_a)
 	if ((*stack_a)->content > (*stack_a)->next->content)
 		ft_sa(stack_a, 1);
 }
-
-
-// int main()
-// {
-// 	t_node *stack;
-// 	t_node *first;
-// 	t_node *second;
-// 	t_node *third;
-
-// 	first = ft_lstnew(1);
-// 	second = ft_lstnew(3);
-// 	third = ft_lstnew(2);
-// 	stack = first;
-// 	ft_add_back(&stack, second);
-// 	ft_add_back(&stack, third);
-// 	sort_3(&stack);
-// 	while (stack)
-// 	{
-// 		printf("%d\n", stack->content);
-// 		stack = stack->next;
-// 	}
-// 	free_list(stack);
-// }

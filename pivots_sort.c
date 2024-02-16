@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/27 19:12:07 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/13 03:40:06 by amabrouk         ###   ########.fr       */
+/*   Created: 2024/02/13 04:39:18 by amabrouk          #+#    #+#             */
+/*   Updated: 2024/02/15 16:45:37 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,6 @@ int	get_pos(t_node *stack, int index)
 	}
 	return (i);
 }
-void print_stack(t_node *stack)
-{
-	while (stack)
-	{
-			printf("%d\n", stack->content);
-			stack = stack->next;
-	}
-
-}
-
-// clear
 
 void	final_sort(t_node **stack_a, t_node **stack_b)
 {
@@ -54,27 +43,29 @@ void	final_sort(t_node **stack_a, t_node **stack_b)
 			ft_ra(stack_a, 1);
 			last = lst_last(*stack_a);
 		}
-		else 
+		else
 		{
-			while ((*stack_a)->index - 1  != (*stack_b)->index)
+			while (*stack_a && (*stack_a)->index - 1  != (*stack_b)->index)
 			{
 				if (get_pos(*stack_b, (*stack_a)->index - 1) > lst_size(*stack_b) / 2)
 					ft_rrb(stack_b, 1);
 				else
 					ft_rb(stack_b, 1);
-				
 				if (last->index == (*stack_a)->index - 1)
 				{
 					ft_rra(stack_a,1);
-					break;
+					break ;
 				}
+				else
+					break;
 			}
 		}
 		while ((*stack_b) && (*stack_a)->index - 1 == (*stack_b)->index)
 			ft_pa(stack_a, stack_b, 1);
 	}
+	while (check_sort(*stack_a))
+		ft_rra(stack_a,1);
 }
-
 
 void	pivots_sort(t_node **stack_a, t_node **stack_b)
 {
@@ -90,7 +81,7 @@ void	pivots_sort(t_node **stack_a, t_node **stack_b)
 			ft_pb(stack_a, stack_b, 1);
 		else
 			ft_ra(stack_a, 1);
-		if (lst_size(*stack_b) > 1 && (*stack_b)->index >= lp1
+		if (lst_size(*stack_b) > 1 && (*stack_b)->index >= lp1 \
 			&& (*stack_b)->index >= p2)
 			ft_rb(stack_b, 1);
 		if (lst_size(*stack_b) == p1)
@@ -101,4 +92,5 @@ void	pivots_sort(t_node **stack_a, t_node **stack_b)
 		}
 	}
 	sort_3(stack_a);
+	final_sort(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 18:07:12 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/08 11:34:05 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:44:39 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,3 @@ void	ft_rrr(t_node **stack_a, t_node **stack_b, int i)
 	if (i)
 		write(1, "rrr\n", 4);
 }
-// int main()
-// {
-// 	t_node *stack_a;
-// 	t_node *first;
-// 	t_node *second;
-// 	t_node *third;
-
-// 	first = malloc(sizeof(t_node));
-// 	second = malloc(sizeof(t_node));
-// 	third = malloc(sizeof(t_node));
-
-// 	first->content = 1;
-// 	second->content = 2;
-// 	third->content = 3;
-// 	first->next = second;
-// 	second->next = third;
-// 	third->next = NULL;
-// 	stack_a = first;
-// 	ft_rrr(&stack_a, &stack_a, 1);
-// 	t_node *tmp = stack_a;
-// 	while (tmp)
-// 	{
-// 		printf("%d\n", tmp->content);
-// 		tmp = tmp->next;
-// 	}
-// }

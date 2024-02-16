@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:06:46 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/01/27 19:02:57 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:47:21 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**ft_split(char *s, char sep)
 	int		i;
 	int		j;
 	int		wc;
-	
+
 	if (!s)
 		return (NULL);
 	wc = count_word(s, sep);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 15:01:02 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/11 12:59:59 by amabrouk         ###   ########.fr       */
+/*   Created: 2024/02/13 09:10:45 by amabrouk          #+#    #+#             */
+/*   Updated: 2024/02/15 16:47:05 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_node	*lst_last(t_node *stack)
 t_node	*ft_lstnew(int content)
 {
 	t_node	*new;
-	
+
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
@@ -74,18 +74,3 @@ void	free_list(t_node *lst)
 		(lst) = (lst)->next;
 	}
 }
-
-// int main (){
-// 	t_node *stack_a;
-// 	t_node *added;
-// 	t_node *tmp;
-// 	t_node *added2;
-// 	int tab[6] = {1, 2, 3, 4, 5};
-// 	stack_a = ft_create_list(tab, 6);
-// 	tmp = stack_a;
-// 	while (tmp)
-// 	{
-// 		printf ("%d\n", tmp->content);
-// 		tmp = tmp->next;
-// 	}
-// }

@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:45:40 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/08 11:30:45 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:44:27 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,64 +77,3 @@ void	ft_pb(t_node **stack_a, t_node **stack_b, int i)
 	if (i)
 		write(1, "pb\n", 3);
 }
-// int main()
-// {
-// 	t_node *stack_a;
-// 	t_node *first;
-// 	t_node *second;
-
-// 	first = malloc(sizeof(t_node));
-// 	second = malloc(sizeof(t_node));
-
-// 	first->content = 1;
-// 	second->content = 4;
-// 	first->next = second;
-// 	second->next = NULL;
-// 	stack_a = first;
-// 	t_node *tmp = stack_a;
-// 	while (tmp->next)
-// 	{
-// 		printf("%d\n", (int)tmp->content);
-// 		tmp = tmp->next;
-// 	}
-
-// 	t_node *stack_b;
-// 	t_node *first2;
-// 	t_node *second2;
-
-// 	first2 = malloc(sizeof(t_node));
-// 	second2 = malloc(sizeof(t_node));
-
-// 	first2->content = 2;
-// 	second2->content = 3;
-// 	first2->next = second2;
-// 	second2->next = NULL;
-// 	stack_b = first2;
-// 	t_node *tmp2 = stack_b;
-// 	while (tmp2)
-// 	{
-// 		printf("%d\n", (int)tmp2->content);
-// 		tmp2 = tmp2->next;
-// 	}
-
-// 	ft_pb(&stack_a, &stack_b, 1);
-// 	printf("after push to a\n");
-// 	printf("stack  -------  A   -------\n");
-// 	while (stack_a)
-// 	{
-// 		printf("%d\n", (int)stack_a->content);
-// 		stack_a = stack_a->next;
-// 	}
-// 	printf("stack  -------  B   -------\n");
-// 	while (stack_b)
-// 	{
-// 		printf("%d\n", (int)stack_b->content);
-// 		stack_b = stack_b->next;
-// 	}
-	// ft_ss(&tmp2, &tmp2, 1);
-	// while (tmp)
-	// {
-	// 	printf("%d\n", tmp->content);
-	// 	tmp = tmp->next;
-	// }
-// }

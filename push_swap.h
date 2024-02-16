@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:20:57 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/11 12:54:20 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:23:20 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef struct node
-{
-	int		content;
-	int		index;
-	struct node	*next;
-}	t_node;
 int		ft_atoi(char *str);
 char	**ft_split(char *s, char sep);
 char	*ft_strjoin(char *s1, char *s2);
 void	put_error(void);
 int		ft_strlen(char *s);
+typedef struct node
+{
+	int			content;
+	int			index;
+	struct node	*next;
+}	t_node;
 t_node	*ft_create_list(int *tab, int len);
 t_node	*lst_last(t_node *stack);
 t_node	*ft_lstnew(int content);

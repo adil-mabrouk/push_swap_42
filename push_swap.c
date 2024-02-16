@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 08:27:23 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/13 00:36:36 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:25:32 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	ft_comp_tab(int *tab, int len)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		j = i + 1;
-		while(j < len)
+		while (j < len)
 		{
 			if (tab[i] == tab[j])
 				put_error();
@@ -58,7 +58,7 @@ int	correct_input(char *str)
 	return (1);
 }
 
-int strlen_2d(char **str)
+int	strlen_2d(char **str)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ int strlen_2d(char **str)
 		return (0);
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 t_node	*ft_parsing(char **av)
@@ -91,7 +91,7 @@ t_node	*ft_parsing(char **av)
 		put_error();
 	i = -1;
 	while (s[++i])
-	tab[i] = ft_atoi(s[i]);
+		tab[i] = ft_atoi(s[i]);
 	ft_comp_tab(tab, strlen_2d(s));
 	lst = ft_create_list(tab, strlen_2d(s));
 	return (free(tab), free(s), lst);
@@ -118,10 +118,7 @@ int	main(int ac, char *av[])
 		{
 			get_index(&stack_a);
 			pivots_sort(&stack_a, &stack_b);
-			final_sort(&stack_a, &stack_b);
 		}
-		while (check_sort(stack_a))
-			ft_rra(&stack_a,1);
 		free_list(stack_a);
 	}
 	return (0);

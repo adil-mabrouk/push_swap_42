@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 00:33:45 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/08 11:34:09 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:47:39 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_rb(t_node **stack_b, int i)
 	t_node	*tmp;
 	t_node	*last;
 
-	if (!*stack_b || !(*stack_b)->next)	
+	if (!*stack_b || !(*stack_b)->next)
 		return ;
 	tmp = (*stack_b)->next;
 	last = *stack_b;
@@ -55,35 +55,3 @@ void	ft_rr(t_node **stack_a, t_node **stack_b, int i)
 	if (i)
 		write(1, "rr\n", 3);
 }
-
-// int main()
-// {
-// 	t_node *stack_a;
-// 	t_node *first;
-// 	t_node *second;
-// 	t_node *third;
-// 	t_node *fourth;
-	
-
-// 	first = malloc(sizeof(t_node));
-// 	second = malloc(sizeof(t_node));
-// 	third = malloc(sizeof(t_node));
-// 	fourth = malloc(sizeof(t_node));
-
-// 	first->content = 1;
-// 	second->content = 2;
-// 	third->content = 3;
-// 	fourth->content = 4;
-// 	first->next = second;
-// 	second->next = third;
-// 	third->next = fourth;
-// 	fourth->next = NULL;
-// 	stack_a = first;
-// 	ft_rr(&stack_a, &stack_a, 1);
-// 	t_node *tmp = stack_a;
-// 	while (tmp)
-// 	{
-// 		printf("%d\n", tmp->content);
-// 		tmp = tmp->next;
-// 	}
-// }

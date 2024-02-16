@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:51:53 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/10 17:11:29 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:45:03 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,3 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	ft_pa(stack_a, stack_b, 1);
 	ft_pa(stack_a, stack_b, 1);
 }
-
-// int main (){
-// 	t_node *stack_a;
-// 	t_node *tmp;
-// 	t_node *stack_b;
-// 	stack_b = NULL;
-// 	int tab[5] = {4, 1, 2, 3};
-// 	stack_a = ft_create_list(tab, 5);
-// 	sort_5(&stack_a, &stack_b);
-// 	tmp = stack_a;
-// 	while (tmp)
-// 	{
-// 		printf ("%d\n", tmp->content);
-// 		tmp = tmp->next;
-// 	}
-// }
