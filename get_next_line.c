@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 00:32:44 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/16 10:16:31 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/19 04:30:09 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ char	*ft_read(int fd, char *buffer, char *var)
 	while (r_bytes > 0 && !ft_strchr(var, '\n'))
 	{
 		r_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (r_bytes == 0)
+			return (NULL);
 		if (r_bytes == -1)
 			return (free(var), free(buffer), NULL);
 		buffer[r_bytes] = '\0';
-		var = ft_strjoin(var, buffer);
+		var = ft_strjoin_gnl(var, buffer);
 	}
 	free(buffer);
 	if (var && var[0] == 0)

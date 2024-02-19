@@ -6,23 +6,11 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 23:22:49 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/16 10:16:14 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/19 04:30:19 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-size_t	ft_strlen(char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strchr(char *str, int c)
 {
@@ -42,30 +30,10 @@ char	*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(char	*s)
+char	*ft_substr(char *s, int start, int len)
 {
-	char	*copy;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	copy = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
-
-char	*ft_substr(char *s, unsigned int start, unsigned int len)
-{
-	char			*res;
-	unsigned int	i;
+	char	*res;
+	int		i;
 
 	i = 0;
 	if (!s || start > ft_strlen(s) || len == 0)
@@ -82,7 +50,7 @@ char	*ft_substr(char *s, unsigned int start, unsigned int len)
 	return (res);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*out_str;
 	size_t	i;

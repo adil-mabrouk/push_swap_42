@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 04:40:10 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/15 16:53:38 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/18 13:59:09 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	check_sort(t_node *stack_a)
 			size++;
 		}
 		else
-			return (1);
+			return (0);
 	}
 	if (size == lst_size(stack_a))
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	max(t_node *stack_a)
