@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 11:14:42 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/19 04:27:27 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/22 00:01:23 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
+
+int	check_sort(t_node *stack_a)
+{
+	t_node	*tmp;
+	int		size;
+
+	tmp = stack_a;
+	size = 1;
+	while (tmp)
+	{
+		if (tmp->next == NULL)
+			break ;
+		if (tmp->content < tmp->next->content)
+		{
+			tmp = tmp->next;
+			size++;
+		}
+		else
+			return (0);
+	}
+	if (size == lst_size(stack_a))
+		return (1);
+	return (0);
+}
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -22,27 +46,8 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	valid_instruction(char *instruction)
-{
-	if (ft_strcmp(instruction, "sa\n") == 0
-		|| ft_strcmp(instruction, "sb\n") == 0
-		|| ft_strcmp(instruction, "ss\n") == 0
-		|| ft_strcmp(instruction, "pa\n") == 0
-		|| ft_strcmp(instruction, "pb\n") == 0
-		|| ft_strcmp(instruction, "ra\n") == 0
-		|| ft_strcmp(instruction, "rb\n") == 0
-		|| ft_strcmp(instruction, "rr\n") == 0
-		|| ft_strcmp(instruction, "rra\n") == 0
-		|| ft_strcmp(instruction, "rrb\n") == 0
-		|| ft_strcmp(instruction, "rrr\n") == 0)
-		return (1);
-	return (0);
-}
-
 void	apply_instruction(t_node **stack_a, t_node **stack_b, char *instruction)
 {
-	if (!valid_instruction(instruction))
-		put_error();
 	if (ft_strcmp(instruction, "sa\n") == 0)
 		ft_sa(stack_a, 0);
 	else if (ft_strcmp(instruction, "sb\n") == 0)
@@ -65,27 +70,51 @@ void	apply_instruction(t_node **stack_a, t_node **stack_b, char *instruction)
 		ft_rrb(stack_b, 0);
 	else if (ft_strcmp(instruction, "rrr\n") == 0)
 		ft_rrr(stack_a, stack_b, 0);
+	else
+		put_error();
+}
+
+void	get_and_apply_instr(t_b_node *head, t_node **stack_a, t_node **stack_b)
+{
+	t_b_node	*temp;
+	t_b_node	*temp2;
+	char		*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		head = ft_add_back_bonus(&head, ft_lstnew_bonus(line));
+		line = get_next_line(0);
+	}
+	temp = head;
+	temp2 = head;
+	while (temp)
+	{
+		apply_instruction(stack_a, stack_b, temp->instruction);
+		temp = temp->next;
+	}
+	if (check_sort(*stack_a) && lst_size(*stack_b) == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free_list(*stack_a);
+	free_list(*stack_b);
+	free_instr(temp2);
+	free_list_bonus(head);
 }
 
 int	main(int ac, char **av)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-	char	*instruction;
+	t_node		*stack_a;
+	t_node		*stack_b;
+	t_b_node	*head;
 
+	head = NULL;
 	stack_b = NULL;
 	if (ac > 1)
 	{
 		stack_a = ft_parsing(av);
-		instruction = get_next_line(0);
-		while (instruction && instruction[0])
-		{
-			apply_instruction(&stack_a, &stack_b, instruction);
-			instruction = get_next_line(0);
-		}
-		if (check_sort(stack_a))
-			write(1, "OK\n", 3);
-		else
-			write(1, "KO\n", 3);
+		get_and_apply_instr(head, &stack_a, &stack_b);
 	}
+	return (0);
 }

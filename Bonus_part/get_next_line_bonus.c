@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 00:32:44 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/19 04:30:09 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/20 23:51:55 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 char	*ft_get_next(char *var)
 {
@@ -53,7 +53,7 @@ char	*ft_read(int fd, char *buffer, char *var)
 	{
 		r_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (r_bytes == 0)
-			return (NULL);
+			return (free(var), free(buffer), NULL);
 		if (r_bytes == -1)
 			return (free(var), free(buffer), NULL);
 		buffer[r_bytes] = '\0';
