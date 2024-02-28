@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:47:48 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/22 10:57:16 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:54:18 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ t_node		*lst_last(t_node *stack);
 t_node		*ft_lstnew(int content);
 t_node		*ft_add_back(t_node **lst, t_node *added);
 
-
-
-
 int			lst_size(t_node *stack);
 void		free_list(t_node *lst);
 void		ft_sa(t_node **stack_a, int i);
@@ -73,7 +70,4 @@ char		*ft_strdup(char	*s);
 char		*ft_strchr(char *str, int c);
 char		*ft_substr(char *s, int start, int len);
 
-
 #endif
-
-

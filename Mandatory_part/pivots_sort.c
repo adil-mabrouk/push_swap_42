@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 04:39:18 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/19 04:31:30 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:43:24 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	pivots_sort(t_node **stack_a, t_node **stack_b)
 	int	lp1 ;
 	int	p2 ;
 
+	get_index(stack_a);
 	(1) && (p1 = lst_size(*stack_a) / 3,
 	p2 = lst_size(*stack_a) / 6, lp1 = -1);
 	while (lst_size(*stack_a) > 3)

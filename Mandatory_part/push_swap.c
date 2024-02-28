@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 08:27:23 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/22 00:00:43 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:44:39 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ int	main(int ac, char *av[])
 		if (lst_size(stack_a) == 4 || lst_size(stack_a) == 5)
 			sort_5(&stack_a, &stack_b);
 		if (lst_size(stack_a) > 5)
-		{
-			get_index(&stack_a);
 			pivots_sort(&stack_a, &stack_b);
-		}
 		free_list(stack_a);
 	}
 	return (0);
