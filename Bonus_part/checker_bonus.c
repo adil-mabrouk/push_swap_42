@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 11:14:42 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/22 00:01:23 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/03/03 02:25:28 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	apply_instruction(t_node **stack_a, t_node **stack_b, char *instruction)
 	else if (ft_strcmp(instruction, "sb\n") == 0)
 		ft_sb(stack_b, 0);
 	else if (ft_strcmp(instruction, "ss\n") == 0)
-		ft_ss(stack_b, stack_b, 0);
+		ft_ss(stack_a, stack_b, 0);
 	else if (ft_strcmp(instruction, "pa\n") == 0)
 		ft_pa(stack_a, stack_b, 0);
 	else if (ft_strcmp(instruction, "pb\n") == 0)
@@ -63,15 +63,13 @@ void	apply_instruction(t_node **stack_a, t_node **stack_b, char *instruction)
 	else if (ft_strcmp(instruction, "rb\n") == 0)
 		ft_rb(stack_b, 0);
 	else if (ft_strcmp(instruction, "rr\n") == 0)
-		ft_rr(stack_a, stack_b, 1);
+		ft_rr(stack_a, stack_b, 0);
 	else if (ft_strcmp(instruction, "rra\n") == 0)
 		ft_rra(stack_a, 0);
 	else if (ft_strcmp(instruction, "rrb\n") == 0)
 		ft_rrb(stack_b, 0);
 	else if (ft_strcmp(instruction, "rrr\n") == 0)
 		ft_rrr(stack_a, stack_b, 0);
-	else
-		put_error();
 }
 
 void	get_and_apply_instr(t_b_node *head, t_node **stack_a, t_node **stack_b)
@@ -83,6 +81,8 @@ void	get_and_apply_instr(t_b_node *head, t_node **stack_a, t_node **stack_b)
 	line = get_next_line(0);
 	while (line)
 	{
+		if (!correct_instr_bonus(line))
+			put_error();
 		head = ft_add_back_bonus(&head, ft_lstnew_bonus(line));
 		line = get_next_line(0);
 	}
@@ -98,9 +98,7 @@ void	get_and_apply_instr(t_b_node *head, t_node **stack_a, t_node **stack_b)
 	else
 		write(1, "KO\n", 3);
 	free_list(*stack_a);
-	free_list(*stack_b);
-	free_instr(temp2);
-	free_list_bonus(head);
+	return (free_list(*stack_b), free_instr(temp2), free_list_bonus(head));
 }
 
 int	main(int ac, char **av)

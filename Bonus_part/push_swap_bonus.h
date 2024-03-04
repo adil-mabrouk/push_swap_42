@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:47:48 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/28 17:54:18 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:14:22 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct node
 
 t_b_node	*ft_lstnew_bonus(char *instruction);
 t_b_node	*ft_add_back_bonus(t_b_node **lst, t_b_node *added);
+int			ft_strcmp(char *s1, char *s2);
+int			correct_instr_bonus(char *line);
 void		free_list_bonus(t_b_node *lst);
 void		free_instr(t_b_node *lst);
 

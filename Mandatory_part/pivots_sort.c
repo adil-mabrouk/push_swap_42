@@ -6,7 +6,7 @@
 /*   By: amabrouk <amabrouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 04:39:18 by amabrouk          #+#    #+#             */
-/*   Updated: 2024/02/28 18:43:24 by amabrouk         ###   ########.fr       */
+/*   Updated: 2024/03/03 20:48:20 by amabrouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_pos(t_node *stack, int index)
 
 void	ft_else(t_node **stack_a, t_node **stack_b, t_node *last)
 {
-	while (*stack_a && (*stack_a)->index - 1 != (*stack_b)->index)
+	while (*stack_b && (*stack_a)->index - 1 != (*stack_b)->index)
 	{
 		if (get_pos(*stack_b, (*stack_a)->index - 1) > lst_size(*stack_b) / 2)
 			ft_rrb(stack_b, 1);
